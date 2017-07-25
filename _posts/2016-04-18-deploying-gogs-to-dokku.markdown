@@ -35,7 +35,14 @@ dokku proxy:ports-add gogs http:80:3000
 
 # expose the container port 22 on host port 2222
 dokku docker-options:add gogs deploy -p 2222:22
+
+We’ll need to disable zero-downtime checks
+dokku checks:disable APP
+
+For app to run!
+dokku config:set APP DOKKU_DOCKERFILE_PORTS=3000
 ```
+
 
 {: .center}
 [![dokku](/img/posts/gogs-tutorial/ports.png)](/img/posts/gogs-tutorial/ports.png)
